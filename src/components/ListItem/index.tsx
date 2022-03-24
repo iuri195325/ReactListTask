@@ -7,9 +7,11 @@ import { useState } from 'react';
 type Props = {
     item: Item;
 }
-
+// recebendo o done da lista
 export const ListItem = ({item}: Props) =>{
 
+    //varial que vai recebar verdade ou falso
+    //ao clicar o evento salva se esta selecionado ao não na variavel
     const [checked, setChecked] = useState(item.done);
 
     return ( 

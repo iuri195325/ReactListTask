@@ -9,12 +9,24 @@ const App = () => {
     {id: 1, name: "comprar", done: true},
     {id: 2, name: "limpar", done: false},
   ]);
+
+  //clone para atualizar lista
+  const handleAddTask = (taskName: string) => {
+    let newList = [...list];
+    newList.push({
+      id: list.length + 1,
+      name: '',
+      done: false
+    });
+    //atualizando nova
+    setList(newList);
+  }
  
   return(
   <C.Container>
     <C.Area>
       <C.Title>Tarefas</C.Title>
-      <AddArea></AddArea>
+      <AddArea onEnter={handleAddTask} />
       {list.map((item, index) => (
         <ListItem key={index} item={item}></ListItem>
       ))}
